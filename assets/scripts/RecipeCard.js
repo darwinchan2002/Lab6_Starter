@@ -3,6 +3,8 @@ class RecipeCard extends HTMLElement {
     // Part 1 Expose - TODO
 
     // You'll want to attach the shadow DOM here
+    super()
+    let shadow = this.attachShadow({mode: 'open'});
   }
 
   set data(data) {
@@ -88,6 +90,56 @@ class RecipeCard extends HTMLElement {
     // Here's the root element that you'll want to attach all of your other elements to
     const card = document.createElement('article');
 
+    const thumb = card.appendChild(document.createElement('img'))
+    recipeThumb.src = data.image.thumbnail
+    recipeThumb.alt = data.name
+
+    const title = card.appendChild(document.createElement('p'))
+    title.setAttribute('class','title')
+
+      const titleLink = title.appendChild(document.createElement('a'))
+      titleLink.href = data.url
+      titleLink.textContent = data.name
+
+    const organizationTitle = card.appendChild(document.createElement('p'))
+    organizationTitle.setAttribute('class','organization')
+    organizationTitle.textContent = data.publisher.name
+
+    const ratingDiv = card.appendChild(document.createElement('div'))
+    ratingDiv.setAttribute('class','rating')
+
+      if (data.hasOwnProperty('rataggregateRatinging')) {
+
+        const rating = ratingDiv.appendChild(document.createElement('span'))
+        rating.textContent = data.aggregateRating.ratingValue
+  
+        const ratingImg = ratingDiv.appendChild(document.createElement('img'))
+        ratingImg.src = TODO()
+  
+        const reviewNum = ratingDiv.appendChild(document.createElement('span'))
+        reviewNum.textContent = data.aggregateRating.ratingCount
+
+      } else {
+
+        const noReview = ratingDiv.appendChild(document.createElement('span'))
+        noReview.textContent = 'No Reviews'
+
+      }
+
+      
+
+    const time = card.appendChild(document.createElement('time'))
+    time.textContent = TODO()
+
+    const ingredients = card.appendChild(document.createElement('p'))
+    ingredients = TODO()
+
+
+
+
+
+
+
     // Some functions that will be helpful here:
     //    document.createElement()
     //    document.querySelector()
@@ -100,6 +152,9 @@ class RecipeCard extends HTMLElement {
     // created in the constructor()
 
     // Part 1 Expose - TODO
+
+    shadow.appendChild()
+    shadow.appendChild(styles)
   }
 }
 
