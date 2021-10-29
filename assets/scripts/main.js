@@ -6,12 +6,9 @@ const recipes = [
   'https://introweb.tech/assets/json/ghostCookies.json',
   'https://introweb.tech/assets/json/birthdayCake.json',
   'https://introweb.tech/assets/json/chocolateChip.json',
-  // https://www.acouplecooks.com/avocado-corn-salad/
-  'assets/recipes/acouplecooks-avocado-corn-salad.json',
-  // https://www.acouplecooks.com/incredible-chopped-salad/
-  'assets/recipes/acouplecooks-incredible-chopped-salad.json',
-  // https://www.acouplecooks.com/spinach-pear-and-apple-pecan-salad/
-  'assets/recipes/acouplecooks-spinach-pear-and-apple-pecan-salad.json'
+  'assets/recipes/dinneratthezoo-mediterranean-couscous-salad.json',
+  'assets/recipes/dinneratthezoo-mediterranean-salad-recipe.json',
+  'assets/recipes/dinneratthezoo-shrimp-salad-recipe.json'
 ];
 
 // Once all of the recipes that were specified above have been fetched, their
@@ -128,7 +125,7 @@ function bindShowMore() {
       btn.textContent = 'Show less'
 
       const main = document.querySelector('main')
-      while (main.firstChild) {
+      while (main.lastChild) {
         main.removeChild(main.firstChild)
       }
       let count = 6
@@ -137,6 +134,7 @@ function bindShowMore() {
         count--
         const rc = document.createElement('recipe-card')
         rc.data = recipeData[recipe]
+        console.log(recipeData[recipe])
         main.appendChild(rc)
       }
 
