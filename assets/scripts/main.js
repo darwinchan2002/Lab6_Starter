@@ -7,11 +7,11 @@ const recipes = [
   'https://introweb.tech/assets/json/birthdayCake.json',
   'https://introweb.tech/assets/json/chocolateChip.json',
   // https://www.acouplecooks.com/avocado-corn-salad/
-  '/assets/recipes/acouplecooks-avocado-corn-salad.json',
+  'assets/recipes/acouplecooks-avocado-corn-salad.json',
   // https://www.acouplecooks.com/incredible-chopped-salad/
-  '/assets/recipes/acouplecooks-incredible-chopped-salad.json',
+  'assets/recipes/acouplecooks-incredible-chopped-salad.json',
   // https://www.acouplecooks.com/spinach-pear-and-apple-pecan-salad/
-  '/assets/recipes/acouplecooks-spinach-pear-and-apple-pecan-salad.json'
+  'assets/recipes/acouplecooks-spinach-pear-and-apple-pecan-salad.json'
 ];
 
 // Once all of the recipes that were specified above have been fetched, their
