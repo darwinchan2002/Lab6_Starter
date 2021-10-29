@@ -5,7 +5,13 @@
 const recipes = [
   'https://introweb.tech/assets/json/ghostCookies.json',
   'https://introweb.tech/assets/json/birthdayCake.json',
-  'https://introweb.tech/assets/json/chocolateChip.json'
+  'https://introweb.tech/assets/json/chocolateChip.json',
+  // https://www.acouplecooks.com/avocado-corn-salad/
+  '/assets/recipes/acouplecooks-avocado-corn-salad.json',
+  // https://www.acouplecooks.com/incredible-chopped-salad/
+  '/assets/recipes/acouplecooks-incredible-chopped-salad.json',
+  // https://www.acouplecooks.com/spinach-pear-and-apple-pecan-salad/
+  '/assets/recipes/acouplecooks-spinach-pear-and-apple-pecan-salad.json'
 ];
 
 // Once all of the recipes that were specified above have been fetched, their
@@ -79,12 +85,12 @@ function createRecipeCards() {
 
   // Part 1 Expose - TODO
   const main = document.querySelector('main')
+  let count = 3
   for (const recipe of Object.keys(recipeData)) {
+    if (count == 0) break
+    count--
     const rc = document.createElement('recipe-card')
-    console.log(recipeData[recipe])
     rc.data = recipeData[recipe]
-    console.log(rc)
-    // rc.data(recipe)
     main.appendChild(rc)
   }
 }
@@ -98,4 +104,42 @@ function bindShowMore() {
   // in the recipeData object where you stored them/
 
   // Part 2 Explore - TODO
+  const btn = document.querySelector('div#button-wrapper button')
+  btn.addEventListener('click', function() {
+    if (btn.textContent == 'Show less') {
+
+      btn.textContent = 'Show more'
+      
+      const main = document.querySelector('main')
+      while (main.firstChild) {
+        main.removeChild(main.firstChild)
+      }
+      let count = 3
+      for (const recipe of Object.keys(recipeData)) {
+        if (count == 0) break
+        count--
+        const rc = document.createElement('recipe-card')
+        rc.data = recipeData[recipe]
+        main.appendChild(rc)
+
+  }
+    } else {
+
+      btn.textContent = 'Show less'
+
+      const main = document.querySelector('main')
+      while (main.firstChild) {
+        main.removeChild(main.firstChild)
+      }
+      let count = 6
+      for (const recipe of Object.keys(recipeData)) {
+        if (count == 0) break
+        count--
+        const rc = document.createElement('recipe-card')
+        rc.data = recipeData[recipe]
+        main.appendChild(rc)
+      }
+
+    }
+  })
 }
