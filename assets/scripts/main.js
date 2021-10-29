@@ -48,12 +48,12 @@ async function fetchRecipes() {
         .then(response => response.json())
         .then(data => {
           recipeData[recipe] = data
-          console.log(data)
         })
         .then( () => {
           if ( recipe == recipes[recipes.length-1] ) {
             if ( Object.keys(recipeData).length ) {
               resolve(true)
+              // console.log(recipeData)
             } else {
               reject(false)
               return
@@ -78,7 +78,15 @@ function createRecipeCards() {
   // show any others you've added when the user clicks on the "Show more" button.
 
   // Part 1 Expose - TODO
-
+  const main = document.querySelector('main')
+  for (const recipe of Object.keys(recipeData)) {
+    const rc = document.createElement('recipe-card')
+    console.log(recipeData[recipe])
+    rc.data = recipeData[recipe]
+    console.log(rc)
+    // rc.data(recipe)
+    main.appendChild(rc)
+  }
 }
 
 function bindShowMore() {
